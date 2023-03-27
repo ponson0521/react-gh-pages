@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 
 const scaleNames = {
   c: 'Celsius',
@@ -98,5 +97,4 @@ class Calculator extends React.Component {
 
 
 // ========================================
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Calculator />);  // 將Michael作為props傳入Example
+export default Calculator;

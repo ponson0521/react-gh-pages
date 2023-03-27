@@ -4,9 +4,10 @@ import Clock from './Clock/Clock';
 import NameFrom from './NameForm/NameFrom';
 import Counter from './Counter/Counter';
 import Progress from './Progress/Progress';
-import Calendar from './Calendar/Calendar'
+import Calendar from './Calendar/Calendar';
+import Calculator from './Calculator/Calculator';
 
-function App(props) {
+function App() {
 
   return (
     <div style={{border: 'solid'}}>
@@ -20,6 +21,7 @@ function App(props) {
       <hr/>
       <Counter />
       <hr/>
+      <Calculator />
     </div>
   )
 }
