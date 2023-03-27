@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Clock from './Clock/Clock';
+import NameFrom from './NameForm/NameFrom';
+import Counter from './Counter/Counter';
+import Progress from './Progress/Progress';
+import Calendar from './Calendar/Calendar'
 
-function App() {
+function App(props) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{border: 'solid'}}>
+      <Calendar />
+      <hr/>
+      <Progress />
+      <hr/>
+      <Clock />
+      <h1>Hello, My name is Michael</h1>
+      <NameFrom name=''/>
+      <hr/>
+      <Counter />
+      <hr/>
     </div>
-  );
+  )
 }
 
 export default App;
