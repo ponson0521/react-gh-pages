@@ -1,28 +1,34 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
-import Clock from './Clock/Clock';
-import NameFrom from './NameForm/NameFrom';
-import Counter from './Counter/Counter';
-import Progress from './Progress/Progress';
 import Calendar from './Calendar/Calendar';
-import Calculator from './Calculator/Calculator';
+import Homepage from './Hompage'
+
+// 匯出一個context object供下層使用
+export const nameContext = React.createContext("Michael");
 
 function App() {
+  // 提示網頁重載
+  useEffect(() => {
+    window.addEventListener("beforeunload", alertUser);
+    return () => {
+      window.removeEventListener("beforeunload", alertUser);
+    };
+  }, []);
+  const alertUser = (e) => {
+    e.preventDefault();
+    e.returnValue = "";
+  };
 
   return (
-    <div style={{border: 'solid'}}>
-      <Calendar />
-      <hr/>
-      <Progress />
-      <hr/>
-      <Clock />
-      <h1>Hello, My name is Michael</h1>
-      <NameFrom name=''/>
-      <hr/>
-      <Counter />
-      <hr/>
-      <Calculator />
-    </div>
+    <nameContext.Provider value='Michael'>
+      <Router>
+        <Routes>        
+          <Route path="/" element={<Homepage />} />
+          <Route path="/calendar" element={<Calendar />} />
+        </Routes>
+      </Router>
+    </nameContext.Provider>
   )
 }
 

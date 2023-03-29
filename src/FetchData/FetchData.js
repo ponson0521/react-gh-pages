@@ -1,32 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
+import UseFetch from '../Hook/UseFetch'
 
 function FetchData() {
-    const [repoName, setRepo] = useState(null); 
-    const handleClick = () => {
-        fetch( 'https://github.com/ponson0521?tab=repositories',
-        {method:"GET", 
-        headers: new Headers({
-            'Content-Type': 'application/json',
-        })
-        })
-        .then(res => res.json())
-        .then(data => {
-            /*接到request data後要做的事情*/
-            setRepo({repoName: data[0]['name']});
-        })
-        .catch(e => {
-        /*發生錯誤時要做的事情*/
-        console.log(e);
-        })
-    }
+  const {data, isLoading, error} = UseFetch(`https://api.github.com/users/ponson0521/repos`);
+
+  if (isLoading) {
+    return <h1>isLoading....</h1>
+  } 
+  else if (data) {
     return (
-        <div>
-            <div >
-            {(repoName===null) ? "沒有資料": repoName}
-            </div>
-            <button onClick={handleClick}>取得資料</button>
-        </div>
-    );
+      <div>
+        My github repository
+        {data.map((value) => <li key={value.id}>{value.name}</li>)}
+      </div>
+    )
+  } 
+  else {
+    console.log(error);
+    return <h1>data can't fetch</h1>
+  }
 }
 
 export default FetchData;

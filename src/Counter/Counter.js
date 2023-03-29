@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 
 // 記錄點擊狀態
 function Counter() {
@@ -14,6 +14,11 @@ function Counter() {
   useEffect(() => {
       document.title = `You clicked ${count} times`;
   });
+  // 以useMemo儲存的值不會改變
+  const memorizeValue = useMemo(() => {
+    return Math.random()
+  }, []);
+  console.log(memorizeValue);
 
   return (
     <div>

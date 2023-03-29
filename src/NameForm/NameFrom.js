@@ -1,30 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useContext} from 'react';
+import { nameContext } from '../App';
 
 // React中form表單儲存訊息
-function NameFrom(props) {
-    const [name, setName] = useState(props.name);
-    const [submission, setSub] = useState(null);
-    // 當submit按鈕被觸發setSub改變state中的submission的值
-    const handleSubmit = event => {
-      alert('Hello! '+ name);
-      setSub(name)
-      event.preventDefault();
-    }; 
-    if (submission != null) {
-      return <h1>Welcome {submission}</h1>
-    }
-    else {
-      return (
-        <form onSubmit={handleSubmit}>
-          <label>
-            Your name :
-            {/* setName使state中的name改變，會因此render新的字 */}
-            <input type="text" value={name} onChange={event => {setName(event.target.value)}} />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      )  
-    }
+function NameFrom() {
+  // 使用useRef保存input的值
+  const nameRef = useRef(null);
+  const [submission, setSub] = useState(false);
+  // 當submit按鈕被觸發setSub改變state中的submission
+  const handleSubmit = event => {
+    event.preventDefault();
+    alert('Hello! '+ nameRef.current.value);
+    setSub(prev => !prev);
+  }; 
+  const myName = useContext(nameContext);
+
+  if (submission === false) {
+    return (
+      <form onSubmit={handleSubmit}>
+        <h1>Hello, My name is {myName}</h1>
+        <label>
+          Your name :
+          {/* setName使state中的name改變，會因此render新的字 */}
+          <input type="text" name='name' ref={nameRef} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    )  
   }
+  else {
+    return (
+    <div>
+      <h1>Hello, My name is {myName}</h1>
+      <h1>Welcome {nameRef.current.value}</h1>
+    </div>
+    )
+  }
+}
 
 export default NameFrom;

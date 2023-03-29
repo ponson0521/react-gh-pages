@@ -1,10 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
 
 function Square(props) {
       return (
-        <button className="square" onClick={() => props.onClick()}>
+        <button className="square" style={{height:"30px", width:"30px"}} onClick={() => props.onClick()}>
           {props.value}
         </button>
       );
@@ -140,8 +138,6 @@ class Game extends React.Component {
 
 
 // ========================================
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Game />);
-
+export default Game;
 
   

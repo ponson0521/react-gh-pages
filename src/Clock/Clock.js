@@ -11,7 +11,7 @@ function Clock() {
     setToggle(!isToggleOn);
   };
 
-  // 使用useEffect設定一秒設定一次現在時間
+  // 使用useEffect設定一秒取得一次當前時間
   useEffect(() => {
     setInterval(() => setDate(new Date()), 1000);
     return () => clearInterval();
