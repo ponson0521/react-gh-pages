@@ -14,7 +14,7 @@ function Homepage() {
   
   return (
     <div style={{border: 'solid'}}>
-      <Link to="/calendar"> 行事曆 </Link>
+      <Link to="/"> 行事曆 </Link>
       <Clock />       
       <hr/>
       <Progress />   

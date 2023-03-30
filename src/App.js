@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Routes>        
           <Route path="/" element={<Calendar />} />
-          <Route path="/calendar" element={<Homepage />} />
+          <Route path="/practice" element={<Homepage />} />
         </Routes>
       </Router>
     </nameContext.Provider>
