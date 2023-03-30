@@ -54,7 +54,7 @@ body {font-family: Verdana, sans-serif;}
 
 /* Days (1-31) */
 .days {
-  padding: 10px 0;
+  padding: 0px 0;
   background: #eee;
   margin: 0;
 }
@@ -64,7 +64,7 @@ body {font-family: Verdana, sans-serif;}
   display: inline-block;
   width: 13.6%;
   text-align: center;
-  margin-bottom: 15px;
+  /* margin-bottom: 40px; */
   font-size:16px;
   color: #777;
   cursor: pointer;
@@ -74,4 +74,19 @@ body {font-family: Verdana, sans-serif;}
 .days .active {
   background: #1abc9c;
   color: white !important
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
 }

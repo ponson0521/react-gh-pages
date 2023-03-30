@@ -1,31 +1,29 @@
-import React from 'react'
- 
-function ToDoList({note}) {
+import React, {useContext} from 'react'
+import { noteContext } from './Calendar';
 
-    const handleOnClick = (event) => {
-        event.target.remove();
-    };
+// 顯示表單送出的當日事項
+function ToDoList({today}) {
+    const {note, setNote} = useContext(noteContext);
 
-    return (
-        <table style={{cursor: "pointer"}} onClick={handleOnClick}>
-            <thead>
-                <tr>
-                    {note.map(({date}, index) => 
-                    <th key={index}>
-                        {date}
-                    </th>)}
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    {note.map(({content}, index) => 
-                    <td key={index} style={{border: "2mm ridge rgba(0, 220, 250, .6)"}}>
-                        {content}
-                    </td>)}
-                </tr>
-            </tbody>
-        </table>    
-    )
-}
+    // 點擊當日事項後移除該事項
+    const handleClick = event => {
+        const newArray = note.filter(obj => {
+            return obj.date !== event.target.className})
+        setNote(newArray);
+    }
+    
+    // 將note中的date的value與日曆的日期做比對，將對應的物件(result)渲染在對應日期
+    const result = note.find(obj => {
+        return obj.date === today
+    });
+
+    if (result === undefined) {
+        return <p></p>
+    }
+    else {
+        return <h3 className={today} onClick={handleClick}>{result.content}</h3>
+    }
+}    
+
 
 export default ToDoList;

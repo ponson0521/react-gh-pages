@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 
-// 將fetch功能做成custom hook
+// 將功能做成custom hook對輸入的url進行fetch
 const UseFetch = (url) => {
     const [isLoading, setIsLoading] = useState(false)
     const [data, setData] = useState('')

@@ -2,7 +2,7 @@ import React, {useState, useEffect, useMemo} from 'react';
 
 // 記錄點擊狀態
 function Counter() {
-  // 使用Hook來儲存點擊次數
+  // 使用State Hook來儲存點擊次數
   const [count, setCount] = useState(0);
 
   // 當點擊時，以setCount設定次數加一，可使用prev變數直接取上一次結果來使用
@@ -10,7 +10,7 @@ function Counter() {
     setCount(prev => (prev + 1));
   };
 
-  // 利用Effect Hook使瀏覽器 API 更新文件標題
+  // 利用Effect Hook使用瀏覽器 API 更新文件標題
   useEffect(() => {
       document.title = `You clicked ${count} times`;
   });

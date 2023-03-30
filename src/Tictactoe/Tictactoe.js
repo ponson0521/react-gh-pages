@@ -1,5 +1,6 @@
 import React from 'react';
 
+// 練習 https://zh-hant.reactjs.org/tutorial/tutorial.html
 function Square(props) {
       return (
         <button className="square" style={{height:"30px", width:"30px"}} onClick={() => props.onClick()}>

@@ -1,15 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { noteContext } from './Calendar';
 
-function MemoForm({month, day, getNote, setClick}) {
+// 輸入當日事項的form
+function MemoForm({month, day, setClick}) {
+    // 取出noteContext中的方法
+    const {note, setNote} = useContext(noteContext);
     const [memory, setMemory] = useState("請輸入當日事項");
 
     const handleChange = event => {
         setMemory(event.target.value);
     };    
-    // 使用Calendar傳下來的getNote方法將表單內容上傳(以及setClick)
+    // 使用noteContext中的setNote方法將表單內容上傳
     const handleSubmit = event => {
-        event.preventDefault()
-        getNote(`${month}/${day}`, `${memory}`);
+        event.preventDefault();
+        setNote([...note, {date:`${month}/${day}`, content:`${memory}`}]);
         setClick(prev => !prev);
     }
 

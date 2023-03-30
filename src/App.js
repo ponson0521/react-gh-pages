@@ -21,11 +21,13 @@ function App() {
   };
 
   return (
+    // 使用Context.provider提供全域可用的資訊
     <nameContext.Provider value='Michael'>
+      {/* 使用Router指向不同頁面 */}
       <Router>
         <Routes>        
-          <Route path="/" element={<Homepage />} />
-          <Route path="/calendar" element={<Calendar />} />
+          <Route path="/" element={<Calendar />} />
+          <Route path="/calendar" element={<Homepage />} />
         </Routes>
       </Router>
     </nameContext.Provider>

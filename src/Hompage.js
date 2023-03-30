@@ -7,6 +7,7 @@ import Progress from './Progress/Progress';
 import Calculator from './Calculator/Calculator';
 import Game from './Tictactoe/Tictactoe';
 import FetchData from './FetchData/FetchData';
+import Dialog from './Dialog/Dialog';
 
 
 function Homepage() {
@@ -16,7 +17,10 @@ function Homepage() {
       <Link to="/calendar"> 行事曆 </Link>
       <Clock />       
       <hr/>
-      <Progress />
+      <Progress />   
+      <hr/>   
+      <Dialog color="blue" title="Welcome" message="Glad you are here." />
+      <Dialog color="red" title="Welcome" message="Glad you are here." />
       <hr/>
       <NameFrom name=''/>
       <hr/>
