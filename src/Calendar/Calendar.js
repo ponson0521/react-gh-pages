@@ -3,12 +3,13 @@ import {Link} from 'react-router-dom';
 import './Calendar.css'
 import Days from './Days';
 import MemoForm from './MemoForm';
+import RandomID from '../RandomID/RandomID';
 
 function Calendar() {
     const [year, setYear] = useState((new Date()).getFullYear());   // 年
     const [month, setMonth] = useState((new Date()).getMonth()+1);  //月
     const [day, setday] = useState((new Date()).getDate()); // 日
-    const [note, setNote] = useState([{date:null, content: null}]);    // 該日待辦事項
+    const [note, setNote] = useState([{id:RandomID(5), date:null, content: null}]);    // 該日待辦事項
     const [click, setClick] = useState(null);    // 呼叫出表單與否
     const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
@@ -43,7 +44,7 @@ function Calendar() {
             setMonth(prev => prev+1);
         }
     };
-
+    console.log(note);
     return (
         // 使用context.provider提供note與setNote給所有下層使用
         <noteContext.Provider value={{note, setNote}}>

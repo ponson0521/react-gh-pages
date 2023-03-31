@@ -9,7 +9,6 @@ import Game from './Tictactoe/Tictactoe';
 import FetchData from './FetchData/FetchData';
 import Dialog from './Dialog/Dialog';
 
-
 function Homepage() {
   
   return (

@@ -78,6 +78,9 @@ body {font-family: Verdana, sans-serif;}
 
 .days li div p{
   cursor: pointer;
+  border-radius: 50em;
+  border: 3px solid;
+  margin: 0;
 }
 .days li div p:hover {
   color: rgb(151, 151, 151);
@@ -90,7 +93,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .button {
-  background-color: #429144;
+  background-color: #00da07;
   border: none;
   color: white;
   padding: 8px 16px;
@@ -102,4 +105,7 @@ body {font-family: Verdana, sans-serif;}
   transition-duration: 0.4s;
   cursor: pointer;
   border-radius: 5px;
+}
+.button:hover {
+  background-color: #009c05
 }

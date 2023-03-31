@@ -8,7 +8,7 @@ function ToDoList({today}) {
     // 點擊當日事項後移除該事項
     const handleClick = event => {
         const newArray = note.filter(obj => {    // filter回傳一個包含符合項目的array
-            return obj.date !== event.target.className});
+            return obj.id !== event.target.className});
         setNote(newArray);
     }
     
@@ -23,7 +23,7 @@ function ToDoList({today}) {
     else {
         return (
             <div style={{color: "rgb(0, 0, 0)"}}>
-                {result.map((value, index) => <p className={today} key={index} style={{margin: 0}} onClick={handleClick}>
+                {result.map((value) => <p className={value.id} key={value.id} onClick={handleClick}>
                     {value.content}
                     </p>
                     )}

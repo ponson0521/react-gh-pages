@@ -1,5 +1,6 @@
 import React, {useState, useContext} from 'react';
 import { noteContext } from './Calendar';
+import RandomID from '../RandomID/RandomID';
 
 // 輸入當日事項的form
 function MemoForm({month, day, setClick}) {
@@ -13,7 +14,7 @@ function MemoForm({month, day, setClick}) {
     // 使用noteContext中的setNote方法將表單內容上傳
     const handleSubmit = event => {
         event.preventDefault();
-        setNote([...note, {date:`${month}/${day}`, content:`${memory}`}]);
+        setNote([...note, {id: RandomID(5), date:`${month}/${day}`, content:`${memory}`}]);
         setClick(null);
     }
 
