@@ -13,16 +13,20 @@ function Days({today, month, setClick, setday}) {
 
     // 當天與現實時間同一天，則添加active的CSS
     if (today === date.getDate() && month === date.getMonth()+1) {
-        return <li className='active'>
+        return (
+            <li className='active'>
                 <h3 onClick={clickDate}>{today}</h3>
                 <ToDoList today={`${month}/${today}`} />                        
             </li>
+            );
     }
     else {
-        return <li>
+        return (
+            <li>
                 <h3 onClick={clickDate}>{today}</h3>
                 <ToDoList today={`${month}/${today}`} />  
             </li>
+            );
     }
 }
 

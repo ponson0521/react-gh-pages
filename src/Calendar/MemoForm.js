@@ -22,7 +22,7 @@ function MemoForm({month, day, setClick}) {
             <input type="text" value={memory} onChange={handleChange} />
             <input type="submit" value="送出" /> 
         </form>
-    );
+        );
     
 }
 
