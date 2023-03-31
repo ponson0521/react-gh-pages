@@ -5,7 +5,7 @@ import { noteContext } from './Calendar';
 function MemoForm({month, day, setClick}) {
     // 取出noteContext中的方法
     const {note, setNote} = useContext(noteContext);
-    const [memory, setMemory] = useState("請輸入當日事項");
+    const [memory, setMemory] = useState("");
 
     const handleChange = event => {
         setMemory(event.target.value);
@@ -14,13 +14,15 @@ function MemoForm({month, day, setClick}) {
     const handleSubmit = event => {
         event.preventDefault();
         setNote([...note, {date:`${month}/${day}`, content:`${memory}`}]);
-        setClick(prev => !prev);
+        setClick(null);
     }
 
     return (            
         <form onSubmit={handleSubmit}>
+            請輸入當日事項:
             <input type="text" value={memory} onChange={handleChange} />
             <input type="submit" value="送出" /> 
+            <input type="button" value="取消" onClick={() => setClick(null)} /> 
         </form>
         );
     

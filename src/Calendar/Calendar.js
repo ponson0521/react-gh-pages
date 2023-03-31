@@ -9,7 +9,7 @@ function Calendar() {
     const [month, setMonth] = useState((new Date()).getMonth()+1);  //月
     const [day, setday] = useState((new Date()).getDate()); // 日
     const [note, setNote] = useState([{date:null, content: null}]);    // 該日待辦事項
-    const [click, setClick] = useState(false);    // 呼叫出表單與否
+    const [click, setClick] = useState(null);    // 呼叫出表單與否
     const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
     // 取得該月份的日數
@@ -64,7 +64,7 @@ function Calendar() {
                         {thirty.map((today, index) => <Days 
                         key={index+1} today={today} month={month} setClick={setClick} setday={setday} />)}
                     </ul>
-                    {click ? <MemoForm month={month} day={day} setClick={setClick}/> : null}
+                    {click !== null ? <MemoForm month={month} day={day} setClick={setClick}/> : null}
             </div>
         </noteContext.Provider>
     );

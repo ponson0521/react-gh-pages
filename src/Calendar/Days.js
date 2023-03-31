@@ -7,7 +7,7 @@ function Days({today, month, setClick, setday}) {
 
     // 點擊日期將當天記錄在state，並傳換click這個state的bool值，呼叫出form
     const clickDate = () => {
-        setClick(prev => !prev);
+        setClick(today);
         setday(today);
     };
 
