@@ -10,12 +10,21 @@ function Calendar() {
     const [day, setday] = useState((new Date()).getDate()); // 日
     const [note, setNote] = useState([{date:null, content: null}]);    // 該日待辦事項
     const [click, setClick] = useState(false);    // 呼叫出表單與否
+    const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
     // 取得該月份的日數
     const getDays = (year, month) => {
         return new Date(year, month, 0).getDate();
     };    
     const thirty = Array(getDays(year, month)).fill().map((value, index) => index+1);
+
+    // 星期的順序
+    const newArr = weekdays;
+    const firstDayThisMonth = new Date(year, month-1, 1).getDay();
+    const weekPart =  newArr.splice(firstDayThisMonth);
+    for (let i = weekPart.length-1; i >= 0; i--) {
+        newArr.splice(0, 0, weekPart[i]);
+    }
 
     // 到上個月
     const prevClick = () => {
@@ -49,13 +58,7 @@ function Calendar() {
                         <li className='year' style={{cursor: "pointer", fontSize:"40px"}}>{year}年{month}月</li>
                     </ul>
                     <ul className="weekdays">
-                        <li>Mo</li>
-                        <li>Tu</li>
-                        <li>We</li>
-                        <li>Th</li>
-                        <li>Fr</li>
-                        <li>Sa</li>
-                        <li>Su</li>
+                        {newArr.map((value, index) => <li key={index}>{value}</li>)}
                     </ul>
                     <ul className='days'>
                         {thirty.map((today, index) => <Days 

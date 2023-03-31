@@ -76,8 +76,11 @@ body {font-family: Verdana, sans-serif;}
   color: #ffa600;
 }
 
-.days li div {
+.days li div p{
   cursor: pointer;
+}
+.days li div p:hover {
+  color: rgb(151, 151, 151);
 }
 
 /* Highlight current day */
