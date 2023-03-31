@@ -42,10 +42,10 @@ function Calendar() {
         // 使用context.provider提供note與setNote給所有下層使用
         <noteContext.Provider value={{note, setNote}}>
             <div id="calendar">
-                <Link to="/practice"> 練習 </Link>
+                <Link to="/practice"> 其他練習 </Link>
                     <ul className="month">
-                        <button className="prev" onClick={prevClick}>&#10094;</button>
-                        <button className="next" onClick={nextClick}>&#10095;</button>
+                        <button className="button prev" onClick={prevClick}>&#10094;</button>
+                        <button className="button next" onClick={nextClick}>&#10095;</button>
                         <li className='year' style={{cursor: "pointer", fontSize:"40px"}}>{year}年{month}月</li>
                     </ul>
                     <ul className="weekdays">

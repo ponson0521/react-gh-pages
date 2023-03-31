@@ -21,7 +21,7 @@ function ToDoList({today}) {
         return <p></p>
     }
     else {
-        return <h3 className={today} onClick={handleClick}>{result.content}</h3>
+        return <p className={today} style={{color: "rgb(0, 0, 0)"}} onClick={handleClick}>{result.content}</p>
     }
 }    
 
