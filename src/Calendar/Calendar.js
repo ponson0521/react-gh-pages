@@ -18,13 +18,10 @@ function Calendar() {
     };    
     const thirty = Array(getDays(year, month)).fill().map((value, index) => index+1);
 
-    // 星期的順序
+    // 取得星期的順序
     const newArr = weekdays;
     const firstDayThisMonth = new Date(year, month-1, 1).getDay();
-    const weekPart =  newArr.splice(firstDayThisMonth);
-    for (let i = weekPart.length-1; i >= 0; i--) {
-        newArr.splice(0, 0, weekPart[i]);
-    }
+    const week = [...(newArr.splice(firstDayThisMonth)), ...newArr];
 
     // 到上個月
     const prevClick = () => {
@@ -58,7 +55,7 @@ function Calendar() {
                         <li className='year' style={{cursor: "pointer", fontSize:"40px"}}>{year}年{month}月</li>
                     </ul>
                     <ul className="weekdays">
-                        {newArr.map((value, index) => <li key={index}>{value}</li>)}
+                        {week.map((value, index) => <li key={index}>{value}</li>)}
                     </ul>
                     <ul className='days'>
                         {thirty.map((today, index) => <Days 
