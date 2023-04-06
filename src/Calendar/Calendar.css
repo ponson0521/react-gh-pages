@@ -64,7 +64,7 @@ body {font-family: Verdana, sans-serif;}
   display: inline-block;
   width: 13.6%;
   text-align: center;
-  /* margin-bottom: 10px; */
+  margin-bottom: 10px;
 }
 
 .days li h3 {
