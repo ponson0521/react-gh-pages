@@ -13,16 +13,14 @@ function Calendar() {
     const [click, setClick] = useState(null);    // 呼叫出表單與否
     const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
+    // 取得星期的順序
+    const firstDayThisMonth = new Date(year, month-1, 1).getDay();
     // 取得該月份的日數
     const getDays = (year, month) => {
         return new Date(year, month, 0).getDate();
     };    
     const thirty = Array(getDays(year, month)).fill().map((value, index) => index+1);
-
-    // 取得星期的順序
-    const newArr = weekdays;
-    const firstDayThisMonth = new Date(year, month-1, 1).getDay();
-    const week = [...(newArr.splice(firstDayThisMonth)), ...newArr];
+    const newthirty = [...Array(firstDayThisMonth).fill(null), ...thirty];
 
     // 到上個月
     const prevClick = () => {
@@ -44,7 +42,7 @@ function Calendar() {
             setMonth(prev => prev+1);
         }
     };
-    console.log(note);
+    
     return (
         // 使用context.provider提供note與setNote給所有下層使用
         <noteContext.Provider value={{note, setNote}}>
@@ -56,10 +54,10 @@ function Calendar() {
                         <li className='year' style={{cursor: "pointer", fontSize:"40px"}}>{year}年{month}月</li>
                     </ul>
                     <ul className="weekdays">
-                        {week.map((value, index) => <li key={index}>{value}</li>)}
+                        {weekdays.map((value, index) => <li key={index}>{value}</li>)}
                     </ul>
                     <ul className='days'>
-                        {thirty.map((today, index) => <Days 
+                        {newthirty.map((today, index) => <Days 
                         key={index+1} today={today} month={month} setClick={setClick} setday={setday} />)}
                     </ul>
                     {click !== null ? <MemoForm month={month} day={day} setClick={setClick}/> : null}
