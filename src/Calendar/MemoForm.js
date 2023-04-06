@@ -13,9 +13,15 @@ function MemoForm({month, day, setClick}) {
     };    
     // 使用noteContext中的setNote方法將表單內容上傳
     const handleSubmit = event => {
-        event.preventDefault();
-        setNote([...note, {id: RandomID(5), date:`${month}/${day}`, content:`${memory}`}]);
-        setClick(null);
+        if (memory !== "") {
+            event.preventDefault();
+            setNote([...note, {id: RandomID(5), date:`${month}/${day}`, content:`${memory}`}]);
+            setClick(null);
+        }
+        else {
+            event.preventDefault();
+            alert("請輸入內容");
+        }
     }
 
     return (            

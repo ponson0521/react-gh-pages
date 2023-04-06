@@ -56,7 +56,7 @@ function Calendar() {
                     <ul className="month">
                         <button className="button prev" onClick={prevClick}>&#10094;</button>
                         <button className="button next" onClick={nextClick}>&#10095;</button>
-                        <Button variant="success" size='lg' onClick={() => setShow(true)}>
+                        <Button variant="outline-dark" size='lg' style={{fontSize:"40px"}} onClick={() => setShow(true)}>
                             {year}年{month}月
                         </Button>
                     </ul>
