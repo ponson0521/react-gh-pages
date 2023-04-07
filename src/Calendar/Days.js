@@ -2,7 +2,7 @@ import React from 'react';
 import ToDoList from './ToDoList';
 
 // 該月的天數
-function Days({today, month, setClick, setday}) {
+function Days({today, month, year, setClick, setday}) {
     const date = new Date();
 
     // 點擊日期將當天記錄在state，並傳換click這個state的bool值，呼叫出form
@@ -12,7 +12,7 @@ function Days({today, month, setClick, setday}) {
     };
 
     // 當天與現實時間同一天，則添加active的CSS
-    if (today === date.getDate() && month === date.getMonth()+1) {
+    if (today === date.getDate() && month === date.getMonth()+1 && year === date.getFullYear()) {
         return (
             <li className='active'>
                 <h3 onClick={clickDate}>{today}</h3>

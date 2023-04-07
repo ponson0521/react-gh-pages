@@ -65,7 +65,7 @@ function Calendar() {
                     </ul>
                     <ul className='days'>
                         {newthirty.map((today, index) => <Days 
-                        key={index+1} today={today} month={month} setClick={setClick} setday={setday} />)}
+                        key={index+1} today={today} month={month} year={year} setClick={setClick} setday={setday} />)}
                     </ul>
                     {click !== null ? <MemoForm month={month} day={day} setClick={setClick}/> : null}
             </div>
@@ -86,8 +86,8 @@ function Calendar() {
                         Close
                     </Button>
                     <Button variant="primary" onClick={() => {
-                        setYear(targetYear);
-                        setMonth(targetMonth);
+                        setYear(parseInt(targetYear, 10));
+                        setMonth(parseInt(targetMonth, 10));
                         setShow(false);
                         }}>
                         Save Changes
