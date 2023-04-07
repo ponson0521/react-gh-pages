@@ -1,4 +1,4 @@
-import React, {StrictMode} from 'react';
+import React from 'react';
 import {HashRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import Calendar from './Calendar/Calendar';
@@ -23,17 +23,15 @@ function App() {
 
   return (
     // 使用Context.provider提供全域可用的資訊
-    <StrictMode>
-      <nameContext.Provider value='Michael'>
-        {/* 使用Router指向不同頁面 */}
-        <Router>
-          <Routes>        
-            <Route path="/" element={<Calendar />} />
-            <Route path="/practice" element={<Homepage />} />
-          </Routes>
-        </Router>
-      </nameContext.Provider>
-    </StrictMode>
+    <nameContext.Provider value='Michael'>
+      {/* 使用Router指向不同頁面 */}
+      <Router>
+        <Routes>        
+          <Route path="/" element={<Calendar />} />
+          <Route path="/practice" element={<Homepage />} />
+        </Routes>
+      </Router>
+    </nameContext.Provider>
   )
 }
 
