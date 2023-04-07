@@ -8,7 +8,8 @@ import Calculator from './Calculator/Calculator';
 import Game from './Tictactoe/Tictactoe';
 import FetchData from './FetchData/FetchData';
 import Dialog from './Dialog/Dialog';
-
+import FilterableProductTable from './Product/Product';
+       
 function Homepage() {
   
   return (
@@ -31,6 +32,7 @@ function Homepage() {
       <hr/>
       <FetchData />
       <hr/>
+      <FilterableProductTable />
     </div>
   )
   }
