@@ -1,6 +1,8 @@
 import React, {useState, useContext, createContext} from 'react';
 // 練習拆分Components https://zh-hant.reactjs.org/docs/thinking-in-react.html
 
+export const filterContext = createContext();
+
 const PRODUCTS = [
     {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
     {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
@@ -103,6 +105,4 @@ function FilterableProductTable() {
     );
 }
   
-
-export const filterContext = createContext();
 export default FilterableProductTable;
