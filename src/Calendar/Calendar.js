@@ -15,8 +15,6 @@ function Calendar() {
     const [click, setClick] = useState(null);    // 呼叫出表單與否
     const weekdays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
     const [show, setShow] = useState(false);    // 是否彈出小視窗
-    const [targetYear, setTargetYear] = useState(year);    // 目標年
-    const [targetMonth, setTargetMonth] = useState(month);    // 目標月
 
     // 取得月份開始的星期
     const firstDayThisMonth = new Date(year, month-1, 1).getDay();
@@ -69,6 +67,7 @@ function Calendar() {
                     </ul>
                     {click !== null ? <MemoForm month={month} day={day} setClick={setClick}/> : null}
             </div>
+            {/* 以下為彈出的小視窗 */}
             <>
                 <Modal show={show} onHide={() => setShow(false)}>
                     <Modal.Header closeButton>
@@ -76,22 +75,15 @@ function Calendar() {
                     </Modal.Header>
                     <Modal.Body>
                         <form>
-                            年：<input type='number' value={targetYear} onChange={event => setTargetYear(event.target.value)}/>
+                            年：<input type='number' value={year} onChange={event => setYear(parseInt(event.target.value, 10))}/>
                             <br/>
-                            月：<input type='number' value={targetMonth} min={1} max={12} onChange={event => setTargetMonth(event.target.value)}/>
+                            月：<input type='number' value={month} min={1} max={12} onChange={event => setMonth(parseInt(event.target.value, 10))}/>
                         </form>
                     </Modal.Body>
                     <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShow(false)}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={() => {
-                        setYear(parseInt(targetYear, 10));
-                        setMonth(parseInt(targetMonth, 10));
-                        setShow(false);
-                        }}>
-                        Save Changes
-                    </Button>
+                        <Button variant="primary" onClick={() => setShow(false)}>
+                            Close
+                        </Button>
                     </Modal.Footer>
                 </Modal>
             </>
