@@ -1,5 +1,9 @@
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
+ul {
+  list-style-type: none;
+}
+body {
+  font-family: Verdana, sans-serif;
+}
 
 /* Month header */
 .month {
@@ -42,7 +46,7 @@ body {font-family: Verdana, sans-serif;}
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color:#ddd;
+  background-color: #ddd;
 }
 
 .weekdays li {
@@ -68,7 +72,7 @@ body {font-family: Verdana, sans-serif;}
 }
 
 .days li h3 {
-  font-size:16px;
+  font-size: 16px;
   color: #3a3a3a;
   cursor: pointer;
 }
@@ -76,7 +80,7 @@ body {font-family: Verdana, sans-serif;}
   color: #ffa600;
 }
 
-.days li div p{
+.days li div p {
   cursor: pointer;
   border-radius: 50em;
   border: 3px solid;
@@ -89,7 +93,7 @@ body {font-family: Verdana, sans-serif;}
 /* Highlight current day */
 .days .active {
   background: #1abc9c;
-  color: white !important
+  color: white !important;
 }
 
 .button {
@@ -107,5 +111,5 @@ body {font-family: Verdana, sans-serif;}
   border-radius: 5px;
 }
 .button:hover {
-  background-color: #009c05
+  background-color: #009c05;
 }
