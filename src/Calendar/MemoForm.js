@@ -28,8 +28,7 @@ function MemoForm({ month, day, setClick }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      請輸入當日事項:
-      <input type="text" value={memory} onChange={handleChange} />
+      <input type="text" placeholder="請輸入當日事項" value={memory} onChange={handleChange} />
       <input type="submit" value="送出" />
       <input type="button" value="取消" onClick={() => setClick(null)} />
     </form>
